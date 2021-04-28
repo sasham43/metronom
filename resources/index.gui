@@ -1,0 +1,212 @@
+<svg>
+  <defs>
+     <symbol id="symbol">
+       <g>
+          <circle id="animated" cx="50%" cy="50%" r="60" >
+            <animate attributeName="r" from="60" to="100" dur=".5" begin="enable" end="disable" />
+            <animate attributeName="r" from="100" to="60" dur=".2" begin="disable" end="enable" />
+         </circle>
+       </g>
+    </symbol>
+    <symbol id="symbol-arc">
+      <g>
+         <arc id="animated-arc" x="50%-75" y="50%-75" height="150" width="150" start-angle="0" sweep-angle="360" arc-width="5">
+         </arc>
+         <animateTransform attributeType="scale" from="1" to="2" begin="enable" dur=".5" final="restore" />
+         <animateTransform attributeType="translate" from="-1,-1" to="-50%-1,-50%-1" begin="enable" dur=".5" final="restore" />
+         <animate attributeName="opacity" from="0.7" to="0.2" dur=".5" begin="enable"  />
+      </g>
+    </symbol>
+    <symbol id="tap-symbol-arc">
+      <g>
+         <arc id="animated-arc" x="50%-75" y="50%-75" height="150" width="150" start-angle="0" sweep-angle="360" arc-width="5">
+         </arc>
+         <animateTransform attributeType="scale" from="1" to="1.5" begin="enable" dur=".2" final="restore" />
+         <animateTransform attributeType="translate" from="-1,-1" to="-25%-1,-25%-1" begin="enable" dur=".2" final="restore" />
+         <animate attributeName="opacity" from="0.7" to="0.2" dur=".2" begin="enable"  />
+      </g>
+    </symbol>
+  </defs>
+  
+  <use id="container" href="#panoramaview">
+    <use id="main-page" href="#panoramaview-item"> 
+  
+<!--     METRONOME BUTTON & ANIMATION -->
+    <use id="animate-instance-arc" href="#symbol-arc" />  
+    <circle id="btn" cx="50%" cy="50%" r="75" pointer-events="visible" />
+    <arc id="btn-arc" fill="#fbcd00" x="50%-75" y="50%-75" width="150" height="150" start-angle="0" sweep-angle="360" arc-width="10" pointer-events="visible" />  
+    <text id="bpm" text-anchor="middle" x="50%" y="50%-10" pointer-events="visible" />
+    <text id="bpm-label" text-buffer="bpm" fill="white" text-anchor="middle" x="50%" y="50%+30" pointer-events="visible" />
+  
+  
+  
+  <!--     BPM BUTTONS  -->
+      <use id="btn-lr" href="#combo-button-lower-right" fill="#01FDF6">
+        <set href="combo-button-icon" attributeName="href" to="sqr_btn_minus_p.png"/>
+        <set href="combo-button-icon-press" attributeName="href" to="cog_press.png"/>
+        <set href="combo-button-stroke" attributeName="display" to="inline"/>
+      </use>
+
+      <use id="btn-tr" href="#combo-button-upper-right" fill="#FB5012">
+        <set href="combo-button-icon" attributeName="href" to="sqr_btn_plus_p.png"/>
+        <set href="combo-button-icon-press" attributeName="href" to="list_press.png"/>
+        <set href="combo-button-stroke" attributeName="display" to="inline"/>
+      </use>
+    </use>
+<!--     TAPPING PAGE  -->
+    <use id="tapping-page" href="#panoramaview-item">
+      <use id="tap-btn-tr" href="#combo-button-upper-right" fill="#fbcd00">
+        <set href="combo-button-icon" attributeName="href" to="btn_combo_play_p.png"/>
+        <set href="combo-button-icon-press" attributeName="href" to="btn_combo_play_press_p.png"/>
+        <set href="combo-button-stroke" attributeName="display" to="inline"/>
+      </use>
+
+      
+      <use id="tap-animate-instance-arc" href="#tap-symbol-arc" />  
+      <circle id="tap-btn" fill="black" cx="50%" cy="50%" r="75" pointer-events="visible" />
+      <arc id="tap-btn-arc" fill="teal" x="50%-75" y="50%-75" width="150" height="150" start-angle="0" sweep-angle="360" arc-width="10" pointer-events="visible" />  
+      <textarea id="tap-label" height="50%" fill="white" text-buffer="tap                                   tempo" text-anchor="middle" x="0" y="50%-40" pointer-events="visible" />
+
+      <text id="tap-tempo-text" x="50%" y="15%" width="100%" fill="white" text-anchor="middle" />
+    </use>
+    
+<!--   SETTINGS -->
+    <use id="settings-page" href="#panoramaview-item">
+      <use id="settings-list" href="#tile-list">
+        <var id="reorder-enabled" value="0" />
+        
+        <use href="#tile-list-header" class="tile-list-item tile-list-header">
+          <text font-size="45" fill="white">Settings</text>     
+          <rect id="tile-divider-bottom" class="tile-divider-bottom" />
+        </use>
+        <use id="vibration-btn" href="#tile-list-item" class="tile-list-item" pointer-events="visible">
+          <text fill="white" width="100%">Vibration Pattern</text>
+          <image id="vibration-pattern-chevron" height="40" width="40" y="20" x="100%-40"  fill="white" href="btn_combo_next_p.png" />
+          <rect id="tile-divider-bottom" class="tile-divider-bottom" />
+        </use>
+        <use id="bpm-step-btn" href="#tile-list-item" class="tile-list-item" pointer-events="visible">
+          <text fill="white" width="100%">BPM Step</text>
+          <image id="bpm-step-chevron" height="40" width="40" y="20" x="100%-40"  fill="white" href="btn_combo_next_p.png" />
+          <rect id="tile-divider-bottom" class="tile-divider-bottom" />
+        </use>
+      </use>
+    </use>
+    
+    <use id="pagination-dots" href="#pagination-widget" y="95%">
+      <use href="#pagination-dot" />
+      <use href="#pagination-dot" />
+      <use href="#pagination-dot" />
+      <use href="#pagination-highlight-dot" />
+    </use>
+    
+    <!--     vibration settings -->
+    <use id="vibration-list" display="none" href="#tile-list">
+      <rect fill="black" height="100%" width="100%" />
+      <use id="vibration-back" href="#tile-list-item" class="tile-list-item vibration-item" pointer-events="visible">
+        <text fill="white" width="100%">Back</text>
+        <rect id="tile-divider-bottom" class="tile-divider-bottom" />
+      </use>
+      <use href="#tile-list-item" class="tile-list-item vibration-item" pointer-events="visible">
+        <text fill="white" width="100%">Alert</text>
+        <circle cx="100%-40" cy="40" r="20" fill="black" />
+        <circle id="vibrate-check-1" cx="100%-40" cy="40" r="20" fill="cyan" />
+        <arc x="100%-60" y="20" start-angle="0" sweep-angle="360" width="40" height="40" arc-width="2" fill="white"/>
+        
+        <rect id="tile-divider-bottom" class="tile-divider-bottom" />
+      </use>
+      <use href="#tile-list-item" class="tile-list-item vibration-item" pointer-events="visible">
+        <text fill="white" width="100%">Bump</text>
+        <circle cx="100%-40" cy="40" r="20" fill="black" />
+        <circle id="vibrate-check-2" cx="100%-40" cy="40" r="20" fill="cyan" />
+        <arc x="100%-60" y="20" start-angle="0" sweep-angle="360" width="40" height="40" arc-width="2" fill="white"/>
+        <rect id="tile-divider-bottom" class="tile-divider-bottom" />
+      </use>
+      <use href="#tile-list-item" class="tile-list-item vibration-item" pointer-events="visible">
+        <text fill="white" width="100%">Confirmation</text>
+        <circle cx="100%-40" cy="40" r="20" fill="black" />
+        <circle id="vibrate-check-3" cx="100%-40" cy="40" r="20" fill="cyan" />
+        <arc x="100%-60" y="20" start-angle="0" sweep-angle="360" width="40" height="40" arc-width="2" fill="white"/>
+        <rect id="tile-divider-bottom" class="tile-divider-bottom" />
+      </use>
+      <use href="#tile-list-item" class="tile-list-item vibration-item" pointer-events="visible">
+        <text fill="white" width="100%">Nudge</text>
+        <circle cx="100%-40" cy="40" r="20" fill="black" />
+        <circle id="vibrate-check-4" cx="100%-40" cy="40" r="20" fill="cyan" />
+        <arc x="100%-60" y="20" start-angle="0" sweep-angle="360" width="40" height="40" arc-width="2" fill="white"/>
+        <rect id="tile-divider-bottom" class="tile-divider-bottom" />
+      </use>
+      <use href="#tile-list-item" class="tile-list-item vibration-item" pointer-events="visible">
+        <text fill="white" width="100%">Ping</text>
+        <circle cx="100%-40" cy="40" r="20" fill="black" />
+        <circle id="vibrate-check-5" cx="100%-40" cy="40" r="20" fill="cyan" />
+        <arc x="100%-60" y="20" start-angle="0" sweep-angle="360" width="40" height="40" arc-width="2" fill="white"/>
+        <rect id="tile-divider-bottom" class="tile-divider-bottom" />
+      </use>
+      <use href="#tile-list-item" class="tile-list-item vibration-item" pointer-events="visible">
+        <text fill="white" width="100%">Ring</text>
+        <circle cx="100%-40" cy="40" r="20" fill="black" />
+        <circle id="vibrate-check-6" cx="100%-40" cy="40" r="20" fill="cyan" />
+        <arc x="100%-60" y="20" start-angle="0" sweep-angle="360" width="40" height="40" arc-width="2" fill="white"/>
+        <rect id="tile-divider-bottom" class="tile-divider-bottom" />
+      </use>
+      <use href="#tile-list-item" class="tile-list-item vibration-item" pointer-events="visible">
+        <text fill="white" width="100%">Off</text>
+        <circle cx="100%-40" cy="40" r="20" fill="black" />
+        <circle id="vibrate-check-7" cx="100%-40" cy="40" r="20" fill="cyan" />
+        <arc x="100%-60" y="20" start-angle="0" sweep-angle="360" width="40" height="40" arc-width="2" fill="white"/>
+        <rect id="tile-divider-bottom" class="tile-divider-bottom" />
+      </use>
+    </use>
+    
+     <!--     bpm step settings -->
+    <use id="bpm-step-list" display="none" href="#tile-list">
+      <rect fill="black" height="100%" width="100%" />
+      <use id="bpm-step-back" href="#tile-list-item" class="tile-list-item bpm-step-item" pointer-events="visible">
+        <text fill="white" width="100%">Back</text>
+        <rect id="tile-divider-bottom" class="tile-divider-bottom" />
+      </use>
+      <use href="#tile-list-item" class="tile-list-item bpm-step-item" pointer-events="visible">
+        <text fill="white" width="100%">1</text>
+        <circle cx="100%-40" cy="40" r="20" fill="black" />
+        <circle id="bpm-step-check-1" cx="100%-40" cy="40" r="20" fill="cyan" />
+        <arc x="100%-60" y="20" start-angle="0" sweep-angle="360" width="40" height="40" arc-width="2" fill="white"/>
+        <rect id="tile-divider-bottom" class="tile-divider-bottom" />
+      </use>
+      <use href="#tile-list-item" class="tile-list-item bpm-step-item" pointer-events="visible">
+        <text fill="white"  width="100%">2</text>
+        <circle cx="100%-40" cy="40" r="20" fill="black" />
+        <circle id="bpm-step-check-2" cx="100%-40" cy="40" r="20" fill="cyan" />
+        <arc x="100%-60" y="20" start-angle="0" sweep-angle="360" width="40" height="40" arc-width="2" fill="white"/>
+        <rect id="tile-divider-bottom" class="tile-divider-bottom" />
+      </use>
+      <use href="#tile-list-item" class="tile-list-item bpm-step-item" pointer-events="visible">
+        <text fill="white"  width="100%">3</text>
+        <circle cx="100%-40" cy="40" r="20" fill="black" />
+        <circle id="bpm-step-check-3" cx="100%-40" cy="40" r="20" fill="cyan" />
+        <arc x="100%-60" y="20" start-angle="0" sweep-angle="360" width="40" height="40" arc-width="2" fill="white"/>
+        <rect id="tile-divider-bottom" class="tile-divider-bottom" />
+      </use>
+      <use href="#tile-list-item" class="tile-list-item bpm-step-item" pointer-events="visible">
+        <text fill="white"  width="100%">4</text>
+        <circle cx="100%-40" cy="40" r="20" fill="black" />
+        <circle id="bpm-step-check-4" cx="100%-40" cy="40" r="20" fill="cyan" />
+        <arc x="100%-60" y="20" start-angle="0" sweep-angle="360" width="40" height="40" arc-width="2" fill="white"/>
+        <rect id="tile-divider-bottom" class="tile-divider-bottom" />
+      </use>
+      <use href="#tile-list-item" class="tile-list-item bpm-step-item" pointer-events="visible">
+        <text fill="white"  width="100%">5</text>
+        <circle cx="100%-40" cy="40" r="20" fill="black" />
+        <circle id="bpm-step-check-5" cx="100%-40" cy="40" r="20" fill="cyan" />
+        <arc x="100%-60" y="20" start-angle="0" sweep-angle="360" width="40" height="40" arc-width="2" fill="white"/>
+        <rect id="tile-divider-bottom" class="tile-divider-bottom" />
+      </use>
+      <use href="#tile-list-item" class="tile-list-item bpm-step-item" pointer-events="visible">
+        <text fill="white" width="100%">10</text>
+        <circle cx="100%-40" cy="40" r="20" fill="black" />
+        <circle id="bpm-step-check-6" cx="100%-40" cy="40" r="20" fill="cyan" />
+        <arc x="100%-60" y="20" start-angle="0" sweep-angle="360" width="40" height="40" arc-width="2" fill="white"/>
+        <rect id="tile-divider-bottom" class="tile-divider-bottom" />
+      </use>
+    </use>    
+  </use>
+</svg>

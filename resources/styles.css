@@ -1,0 +1,94 @@
+.defaultText {
+  font-size: 32;
+  font-family: System-Regular;
+  font-weight: regular;
+  text-length: 32;
+}
+
+
+#btn {
+/*   fill: red; */
+  fill: black;
+}
+#btn-arc {
+  fill: white;
+}
+
+#bpm {
+  fill: white;
+  text-length: 12;
+}
+#status {
+  fill: white;
+  text-length: 12;
+}
+
+#animated {
+  fill: red;
+  opacity: 0.5;
+}
+
+#animated-arc {
+  fill: white;
+}
+
+#bpm-container {
+/*   fill: red; */
+}
+
+.tile-list-item {
+  height: 80;
+}
+.tile-divider-bottom {
+  x: 0;
+  y: 100%-2;
+  width: 100%;
+  height: 2;
+  fill: #A0A0A0;
+}
+.tile-list-item text,
+.settings-tile-text {
+  fill: white;
+}
+
+.tile-list-header text {
+  font-size: 25;
+}
+
+#vibration-list {
+/*   visibility: hidden; */
+  display: none;
+}
+
+.vibrate-check {
+  fill: green;
+}
+
+#vibrate-check-0,
+#vibrate-check-1,
+#vibrate-check-2,
+#vibrate-check-3,
+#vibrate-check-4,
+#vibrate-check-5 {
+  fill: green;
+}
+
+#tap-label {
+  text-length: 12;
+  fill: teal;
+}
+#tap-btn-arc {
+  fill: teal;
+}
+#tap-btn {
+  fill: white;
+}
+
+#min-tumbler { 
+/*   y: 50%-55;  */
+  height: 50%;
+  width: 50%;
+/*   fill:white;  */
+}
+.item { height: 90; fill:blue; }
+.item text { font-size: 80; fill: white; x: 5;  }
